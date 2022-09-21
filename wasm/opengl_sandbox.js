@@ -554,13 +554,6 @@ function addFunction(func, sig) {
 
   // It's not in the table, add it now.
 
-  // Make sure functionsInTableMap is actually up to date, that is, that this
-  // function is not actually in the wasm Table despite not being tracked in
-  // functionsInTableMap.
-  for (var i = 0; i < wasmTable.length; i++) {
-    assert(getWasmTableEntry(i) != func, 'function in Table but not functionsInTableMap');
-  }
-
   var ret = getEmptyTableSlot();
 
   // Set the new value.
@@ -1342,7 +1335,6 @@ function initRuntime() {
   assert(!runtimeInitialized);
   runtimeInitialized = true;
 
-  ___set_stack_limits(_emscripten_stack_get_base(), _emscripten_stack_get_end());
   
 if (!Module["noFSInit"] && !FS.init.initialized)
   FS.init();
@@ -1949,13 +1941,6 @@ var ASM_CONSTS = {
       exceptionLast = ptr;
       uncaughtExceptionCount++;
       throw ptr + " - Exception catching is disabled, this exception cannot be caught. Compile with -s NO_DISABLE_EXCEPTION_CATCHING or -s EXCEPTION_CATCHING_ALLOWED=[..] to catch.";
-    }
-
-  function ___handle_stack_overflow() {
-      // TODO(sbc): Improve this error message.   The old abortStackOverflow used
-      // by asm.js used to do a better job:
-      // abort('Stack overflow! Attempted to allocate ' + allocSize + ' bytes on the stack, but stack has only ' + (_emscripten_stack_get_free() + allocSize) + ' bytes available!');
-      abort('stack overflow');
     }
 
   function setErrNo(value) {
@@ -5982,14 +5967,6 @@ var ASM_CONSTS = {
       HEAPU8.copyWithin(dest, src, src + num);
     }
 
-  var _emscripten_get_now;if (ENVIRONMENT_IS_NODE) {
-    _emscripten_get_now = () => {
-      var t = process['hrtime']();
-      return t[0] * 1e3 + t[1] / 1e6;
-    };
-  } else _emscripten_get_now = () => performance.now();
-  ;
-  
   function emscripten_realloc_buffer(size) {
       try {
         // round size grow request up to wasm page size (fixed 64KB per spec)
@@ -6023,7 +6000,7 @@ var ASM_CONSTS = {
       // In CAN_ADDRESS_2GB mode, stay one Wasm page short of 4GB: while e.g. Chrome is able to allocate full 4GB Wasm memories, the size will wrap
       // back to 0 bytes in Wasm side for any code that deals with heap sizes, which would require special casing all heap size related code to treat
       // 0 specially.
-      var maxHeapSize = 1073741824;
+      var maxHeapSize = 2147483648;
       if (requestedSize > maxHeapSize) {
         err('Cannot enlarge memory, asked to go up to ' + requestedSize + ' bytes, but the limit is ' + maxHeapSize + ' bytes!');
         return false;
@@ -6038,10 +6015,7 @@ var ASM_CONSTS = {
   
         var newSize = Math.min(maxHeapSize, alignUp(Math.max(requestedSize, overGrownHeapSize), 65536));
   
-        var t0 = _emscripten_get_now();
         var replacement = emscripten_realloc_buffer(newSize);
-        var t1 = _emscripten_get_now();
-        out('Heap resize call from ' + oldSize + ' to ' + newSize + ' took ' + (t1 - t0) + ' msecs. Success: ' + !!replacement);
         if (replacement) {
   
           return true;
@@ -6703,6 +6677,14 @@ var ASM_CONSTS = {
       }
       return 0;
     }
+  
+  var _emscripten_get_now;if (ENVIRONMENT_IS_NODE) {
+    _emscripten_get_now = () => {
+      var t = process['hrtime']();
+      return t[0] * 1e3 + t[1] / 1e6;
+    };
+  } else _emscripten_get_now = () => performance.now();
+  ;
   
   function _exit(status) {
       // void _exit(int status);
@@ -9372,7 +9354,6 @@ var asmLibraryArg = {
   "__assert_fail": ___assert_fail,
   "__cxa_allocate_exception": ___cxa_allocate_exception,
   "__cxa_throw": ___cxa_throw,
-  "__handle_stack_overflow": ___handle_stack_overflow,
   "__syscall_fcntl64": ___syscall_fcntl64,
   "__syscall_ioctl": ___syscall_ioctl,
   "__syscall_open": ___syscall_open,
@@ -9556,9 +9537,6 @@ var stackAlloc = Module["stackAlloc"] = createExportWrapper("stackAlloc");
 
 /** @type {function(...*):?} */
 var ___cxa_demangle = Module["___cxa_demangle"] = createExportWrapper("__cxa_demangle");
-
-/** @type {function(...*):?} */
-var ___set_stack_limits = Module["___set_stack_limits"] = createExportWrapper("__set_stack_limits");
 
 /** @type {function(...*):?} */
 var dynCall_ii = Module["dynCall_ii"] = createExportWrapper("dynCall_ii");
