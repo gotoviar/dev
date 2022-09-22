@@ -4847,10 +4847,12 @@ var ASM_CONSTS = {
         }
         return ret;
       },maybeStopUnwind:function() {
+        err('ASYNCIFY: maybe stop unwind', Asyncify.exportCallStack);
         if (Asyncify.currData &&
             Asyncify.state === Asyncify.State.Unwinding &&
             Asyncify.exportCallStack.length === 0) {
           // We just finished unwinding.
+          err('ASYNCIFY: stop unwind');
           
           Asyncify.state = Asyncify.State.Normal;
           // Keep the runtime alive so that a re-wind can be done later.
@@ -4895,6 +4897,7 @@ var ASM_CONSTS = {
         return func;
       },doRewind:function(ptr) {
         var start = Asyncify.getDataRewindFunc(ptr);
+        err('ASYNCIFY: start:', start);
         // Once we have rewound and the stack we no longer need to artificially keep
         // the runtime alive.
         
@@ -4902,6 +4905,7 @@ var ASM_CONSTS = {
       },handleSleep:function(startAsync) {
         assert(Asyncify.state !== Asyncify.State.Disabled, 'Asyncify cannot be done during or after the runtime exits');
         if (ABORT) return;
+        err('ASYNCIFY: handleSleep ' + Asyncify.state);
         if (Asyncify.state === Asyncify.State.Normal) {
           // Prepare to sleep. Call startAsync, and see what happens:
           // if the code decided to call our callback synchronously,
@@ -4924,6 +4928,7 @@ var ASM_CONSTS = {
             // we unwind again, we would unwind through the extra compiled code
             // too).
             assert(!Asyncify.exportCallStack.length, 'Waking up (starting to rewind) must be done from JS, without compiled code on the stack.');
+            err('ASYNCIFY: start rewind ' + Asyncify.currData);
             Asyncify.state = Asyncify.State.Rewinding;
             runAndAbortIfError(() => Module['_asyncify_start_rewind'](Asyncify.currData));
             if (typeof Browser !== 'undefined' && Browser.mainLoop.func) {
@@ -4971,6 +4976,7 @@ var ASM_CONSTS = {
             Asyncify.state = Asyncify.State.Unwinding;
             // TODO: reuse, don't alloc/free every sleep
             Asyncify.currData = Asyncify.allocateData();
+            err('ASYNCIFY: start unwind ' + Asyncify.currData);
             runAndAbortIfError(() => Module['_asyncify_start_unwind'](Asyncify.currData));
             if (typeof Browser !== 'undefined' && Browser.mainLoop.func) {
               Browser.mainLoop.pause();
@@ -4978,6 +4984,7 @@ var ASM_CONSTS = {
           }
         } else if (Asyncify.state === Asyncify.State.Rewinding) {
           // Stop a resume.
+          err('ASYNCIFY: stop rewind');
           Asyncify.state = Asyncify.State.Normal;
           runAndAbortIfError(Module['_asyncify_stop_rewind']);
           _free(Asyncify.currData);
