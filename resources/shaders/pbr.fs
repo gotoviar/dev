@@ -36,6 +36,8 @@ in vec2 UV1;
 uniform vec3 uEyePos;
 uniform vec3 uLightPos;
 
+uniform int uIsSqueeze;
+
 float uExposure = 4.5;
 float uGamma = 2.2;
 
@@ -179,8 +181,8 @@ void main()
         // Roughness is stored in the 'g' channel, metallic is stored in the 'b' channel.
         // This layout intentionally reserves the 'r' channel for (optional) occlusion map data
         vec4 mrSample = texture(uMetallicRoughnessMap, uMetallicRoughnessMapSet == 0 ? UV0 : UV1);
-        perceptualRoughness = mrSample.g * perceptualRoughness;
-        metallic = mrSample.b * metallic;
+        perceptualRoughness = mrSample.g;
+        metallic = mrSample.b;
 	}
 	else 
 	{
@@ -254,6 +256,9 @@ void main()
 	color += getReflection(baseColor.rgb, perceptualRoughness, metallic, NdotV, n, r);
 	
 	//FragColor = vec4(color * 0.000001 + vec3(perceptualRoughness), baseColor.a);
+	if(uIsSqueeze != 0)
+        color *= vec3(0.4, 1.0, 0.4);
+	
 	FragColor = vec4(color + 0.2 * baseColor.rgb, baseColor.a);
 }
 
