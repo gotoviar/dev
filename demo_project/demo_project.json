@@ -1,0 +1,210 @@
+{
+  "title": "This is the demo project",
+  "description": "This is a example of a project",
+  "fileVersion": 1,
+  "majorVersion": 1,
+  "minorVersion": 0,
+  "patchVersion": 0,
+  "author": "GoToViar Team",
+  "license": "free",
+
+  "resources":
+  {
+    "permanent": [
+        {
+            "images": [
+                { "air_jordan" : "png" },
+                { "apple_iphone_xs" : "png" },
+                { "apple_macbook_pro_16_inch_2021" : "png" },
+                { "apple_watch_series_5" : "png" },
+                { "apple_watch_series_7" : "png" },
+                { "base_env" : "jpg" },
+                { "big_hotel_room" : "png" },
+                { "bmw" : "png" },
+                { "boat" : "png" },
+                { "casio_edifice_watch" : "png" },
+                { "casual_clothes" : "png" },
+                { "chair" : "png" },
+                { "closet_wing_line" : "png" },
+                { "clothes" : "png" },
+                { "curved_sofa" : "png" },
+                { "deluxe_hotel_room" : "png" },
+                { "diamond_ring" : "png" },
+                { "dodge_tomahawk_2003" : "png" },
+                { "doji_diamond_ring" : "png" },
+                { "done_ring" : "png" },
+                { "f1_2021_mclaren_mcl35m" : "png" },
+                { "f1_2022_generic_free" : "png" },
+                { "facilities" : "png" },
+                { "ferrari_458_italia" : "png" },
+                { "floor_plan" : "png" },
+                { "food" : "png" },
+                { "furniture" : "png" },
+                { "furniture_sofa" : "png" },
+                { "galaxy_s21_ultra" : "png" },
+                { "garden_house" : "png" },
+                { "gray_shaped_couch" : "png" },
+                { "hamburger" : "png" },
+                { "handsome_man_in_casual_clothes" : "png" },
+                { "harley_davidson_seventy_two_hd_fxt_2015" : "png" },
+                { "hawk_shoe_by" : "png" },
+                { "heels_gloss" : "png" },
+                { "hospitality" : "png" },
+                { "hotell_room_360vid" : "jpg" },
+                { "huawei_watch_gt2" : "png" },
+                { "interior" : "png" },
+                { "iphone_13" : "png" },
+                { "jewellery" : "png" },
+                { "jiotto_caspita_f1_road_car_1989_by_alexka" : "png" },
+                { "jiotto_caspita_roadster_1989_by_alexka" : "png" },
+                { "kitchen" : "png" },
+                { "lamborghini_terzo_millennio" : "png" },
+                { "laptops" : "png" },
+                { "little_hotel_room" : "png" },
+                { "london" : "jpg" },
+                { "lotus" : "png" },
+                { "room_videos" : "png" },
+                { "lounger_armchair" : "png" },
+                { "luciano_left_hand_corner_sofa" : "png" },
+                { "macbook_pro_2021" : "png" },
+                { "messy_bed" : "png" },
+                { "mini_cooper" : "png" },
+                { "modern_kitchen" : "png" },
+                { "motorcycle" : "png" },
+                { "nike_air_zoom_pegasus" : "png" },
+                { "phone" : "png" },
+                { "porche" : "png" },
+                { "real_estate" : "png" },
+                { "retail" : "png" },
+                { "ring" : "png" },
+                { "room_floor_plans" : "png" },
+                { "samsung_galaxy_s22_ultra" : "png" },
+                { "scanned_adidas_sports_shoe" : "png" },
+                { "seiko_watch" : "png" },
+                { "shoe" : "png" },
+                { "shoes" : "png" },
+                { "smartphones" : "png" },
+                { "sofa_sample" : "png" },
+                { "stewardess" : "png" },
+                { "suite" : "png" },
+                { "surroundings" : "jpg" },
+                { "swimingpool" : "jpg" },
+                { "table" : "png" },
+                { "tbi_360_1_pos" : "png" },
+                { "tbi_360_2_pos" : "png" },
+                { "tbi_360_3_pos" : "png" },
+                { "tesla_2018_model" : "png" },
+                { "transports" : "png" },
+                { "villa" : "png" },
+                { "watch" : "png" },
+                { "watches" : "png" },
+                { "wine" : "png" },
+                { "winter_shoe" : "png" }
+            ]
+        },
+        {
+            "models": [
+                {"scene":"glb"},
+                {"controller":"glb"}
+            ]
+        }
+    ],
+    "temporary": [
+        {
+            "images": [
+                { "tbi_360_1" : "jpg" },
+                { "tbi_360_2" : "jpg" },
+                { "tbi_360_3" : "jpg" }
+            ]
+        },
+        {
+            "models": [
+                {"air_jordan" : "glb"},
+                {"apple_iphone_xs" : "glb"},
+                {"apple_macbook_pro_16_inch_2021" : "glb"},
+                {"apple_watch_series_5" : "glb"},
+                {"apple_watch_series_7" : "glb"},
+                {"big_hotel_room" : "glb"},
+                {"bmw_8" : "glb"},
+                {"boat" : "glb"},
+                {"casio_edifice_watch" : "glb"},
+                {"casual_clothes" : "glb"},
+                {"chair" : "glb"},
+                {"closet_wing_line" : "glb"},
+                {"curved_sofa" : "glb"},
+                {"deluxe_hotel_room" : "glb"},
+                {"diamond_ring" : "glb"},
+                {"dodge_tomahawk_2003" : "glb"},
+                {"doji_diamond_ring" : "glb"},
+                {"done_ring" : "glb"},
+                {"f1_2021_mclaren_mcl35m" : "glb"},
+                {"f1_2022_generic_free" : "glb"},
+                {"ferrari_458_italia" : "glb"},
+                {"floor_plan" : "glb"},
+                {"furniture" : "glb"},
+                {"galaxy_s21_ultra" : "glb"},
+                {"garden_house" : "glb"},
+                {"gray_l_shaped_couch" : "glb"},
+                {"hamburger" : "glb"},
+                {"handsome_man_in_casual_clothes" : "glb"},
+                {"harley_davidson_seventy_two_hd_fxt_2015" : "glb"},
+                {"hawk_shoe_by" : "glb"},
+                {"heels_gloss" : "glb"},
+                {"huawei_watch_gt2" : "glb"},
+                {"interior" : "glb"},
+                {"iphone_13" : "glb"},
+                {"jiotto_caspita_f1_road_car_1989_by_alexka" : "glb"},
+                {"jiotto_caspita_roadster_1989_by_alexka" : "glb"},
+                {"lamborghini_terzo_millennio" : "glb"},
+                {"little_hotel_room" : "glb"},
+                {"lotus" : "glb"},
+                {"lounger_armchair" : "glb"},
+                {"luciano_left_hand_corner_sofa_mountain_grey" : "glb"},
+                {"macbook_pro_2021" : "glb"},
+                {"messy_bed_2_with_wall_mounted_backboard" : "glb"},
+                {"mini_cooper" : "glb"},
+                {"modern_kitchen" : "glb"},
+                {"motorcycle" : "glb"},
+                {"nike_air_zoom_pegasus" : "glb"},
+                {"phone" : "glb"},
+                {"porche" : "glb"},
+                {"ring" : "glb"},
+                {"samsung_galaxy_s22_ultra" : "glb"},
+                {"scanned_adidas_sports_shoe" : "glb"},
+                {"script" : "py"},
+                {"seiko_watch" : "glb"},
+                {"shoe" : "glb"},
+                {"sofa_sample" : "glb"},
+                {"stewardess" : "glb"},
+                {"suite" : "glb"},
+                {"table" : "glb"},
+                {"tesla_2018" : "glb"},
+                {"villa" : "glb"},
+                {"watch" : "glb"},
+                {"winter_shoe" : "glb"}
+            ]
+        },
+        {
+            "video": []
+        },
+        {
+            "audio": []
+        }
+    ]
+  },
+  
+  "menu": 
+  {
+    "version": "1.0",
+    "items": [
+      {
+        "name": "admin",
+        "path": "path to resource"
+      },
+      {
+        "name": "guest",
+        "path": "path to resource"
+      }
+    ]
+  }
+}

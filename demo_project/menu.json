@@ -1,0 +1,101 @@
+{
+    "menu": {
+        "main": {
+            "button": {
+                "position": {
+                    "mode": "relative",
+                    "x": 20.0,
+                    "y": 30.0
+                },
+                "size": {
+                    "mode": "relative",
+                    "width": 40.0,
+                    "height": 40.0
+                },
+                "components": {
+                    "frame": {
+                        "animation": {
+                            "easing": "linear"
+                        },
+                        "colors": {
+                            "default": {
+                                "r": 255,
+                                "g": 126,
+                                "b": 120
+                            },
+                            "hovered": [
+                                {
+                                    "r": 36,
+                                    "g": 64,
+                                    "b": 17
+                                },
+                                {
+                                    "r": 98,
+                                    "g": 100,
+                                    "b": 100
+                                }
+                            ],
+                            "active": {
+                                "r": 255,
+                                "g": 255,
+                                "b": 255
+                            }
+                        },
+                        "transform": [
+                            {
+                                "type": "scale",
+                                "vec3": {
+                                    "x": 1.2,
+                                    "y": 1.2
+                                }
+                            },
+                            {
+                                "type": "rotate",
+                                "angle": 45.0
+                            },
+                            {
+                                "type": "translate",
+                                "vec3": {
+                                    "x": 3.0,
+                                    "y": 3.0
+                                }
+                            }
+                        ]
+                    },
+                    "border": {
+                        "colors": {
+                            "default": {
+                                "r": 255,
+                                "g": 255,
+                                "b": 255
+                            },
+                            "hovered": [
+                                {
+                                    "r": 255,
+                                    "g": 255,
+                                    "b": 255
+                                },
+                                {
+                                    "r": 255,
+                                    "g": 255,
+                                    "b": 255
+                                }
+                            ],
+                            "active": {
+                                "r": 255,
+                                "g": 255,
+                                "b": 255
+                            }
+                        }
+                    },
+                    "image": {
+                        "image_id": 3
+                    },
+                    "text": {
+                        "label": "Button"
+                    }
+                }
+            }
+        }
+    }
+}
