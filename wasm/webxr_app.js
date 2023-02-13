@@ -921,7 +921,7 @@ var TOTAL_STACK = 5242880;
 
 if (Module["TOTAL_STACK"]) assert(TOTAL_STACK === Module["TOTAL_STACK"], "the stack size can no longer be determined at runtime");
 
-var INITIAL_MEMORY = Module["INITIAL_MEMORY"] || 268435456;
+var INITIAL_MEMORY = Module["INITIAL_MEMORY"] || 536870912;
 
 if (!Object.getOwnPropertyDescriptor(Module, "INITIAL_MEMORY")) {
  Object.defineProperty(Module, "INITIAL_MEMORY", {
@@ -938,7 +938,7 @@ assert(typeof Int32Array !== "undefined" && typeof Float64Array !== "undefined" 
 
 assert(!Module["wasmMemory"], "Use of `wasmMemory` detected.  Use -s IMPORTED_MEMORY to define wasmMemory externally");
 
-assert(INITIAL_MEMORY == 268435456, "Detected runtime INITIAL_MEMORY setting.  Use -s IMPORTED_MEMORY to define wasmMemory dynamically");
+assert(INITIAL_MEMORY == 536870912, "Detected runtime INITIAL_MEMORY setting.  Use -s IMPORTED_MEMORY to define wasmMemory dynamically");
 
 var wasmTable;
 
@@ -1330,8 +1330,28 @@ function withStackSave(f) {
 }
 
 function demangle(func) {
- warnOnce("warning: build with  -s DEMANGLE_SUPPORT=1  to link in libcxxabi demangling");
- return func;
+ demangle.recursionGuard = (demangle.recursionGuard | 0) + 1;
+ if (demangle.recursionGuard > 1) return func;
+ var __cxa_demangle_func = Module["___cxa_demangle"] || Module["__cxa_demangle"];
+ assert(__cxa_demangle_func);
+ return withStackSave(function() {
+  try {
+   var s = func;
+   if (s.startsWith("__Z")) s = s.substr(1);
+   var len = lengthBytesUTF8(s) + 1;
+   var buf = stackAlloc(len);
+   stringToUTF8(s, buf, len);
+   var status = stackAlloc(4);
+   var ret = __cxa_demangle_func(buf, 0, 0, status);
+   if (HEAP32[status >>> 2] === 0 && ret) {
+    return UTF8ToString(ret);
+   }
+  } catch (e) {} finally {
+   _free(ret);
+   if (demangle.recursionGuard < 2) --demangle.recursionGuard;
+  }
+  return func;
+ });
 }
 
 function demangleAll(text) {
@@ -1385,6 +1405,10 @@ function stackTrace() {
  var js = jsStackTrace();
  if (Module["extraStackTrace"]) js += "\n" + Module["extraStackTrace"]();
  return demangleAll(js);
+}
+
+function ___assert_fail(condition, filename, line, func) {
+ abort("Assertion failed: " + UTF8ToString(condition) + ", at: " + [ filename ? UTF8ToString(filename) : "unknown filename", line, func ? UTF8ToString(func) : "unknown function" ]);
 }
 
 function ___cxa_allocate_exception(size) {
@@ -5400,7 +5424,7 @@ var Asyncify = {
   return id;
  },
  instrumentWasmImports: function(imports) {
-  var ASYNCIFY_IMPORTS = [ "env.invoke_*", "env.emscripten_sleep", "env.emscripten_wget", "env.emscripten_wget_data", "env.emscripten_idb_load", "env.emscripten_idb_store", "env.emscripten_idb_delete", "env.emscripten_idb_exists", "env.emscripten_idb_load_blob", "env.emscripten_idb_store_blob", "env.SDL_Delay", "env.emscripten_scan_registers", "env.emscripten_lazy_load_code", "env.emscripten_fiber_swap", "wasi_snapshot_preview1.fd_sync", "env.__wasi_fd_sync", "env._emval_await", "env._dlopen_js", "env.__asyncjs__*" ].map(x => x.split(".")[1]);
+  var ASYNCIFY_IMPORTS = [ "env.emscripten_async_wget2_data", "env.invoke_*", "env.emscripten_sleep", "env.emscripten_wget", "env.emscripten_wget_data", "env.emscripten_idb_load", "env.emscripten_idb_store", "env.emscripten_idb_delete", "env.emscripten_idb_exists", "env.emscripten_idb_load_blob", "env.emscripten_idb_store_blob", "env.SDL_Delay", "env.emscripten_scan_registers", "env.emscripten_lazy_load_code", "env.emscripten_fiber_swap", "wasi_snapshot_preview1.fd_sync", "env.__wasi_fd_sync", "env._emval_await", "env._dlopen_js", "env.__asyncjs__*" ].map(x => x.split(".")[1]);
   for (var x in imports) {
    (function(x) {
     var original = imports[x];
@@ -6380,7 +6404,7 @@ function _emscripten_resize_heap(requestedSize) {
  var oldSize = HEAPU8.length;
  requestedSize = requestedSize >>> 0;
  assert(requestedSize > oldSize);
- var maxHeapSize = 3221225472;
+ var maxHeapSize = 4294901760;
  if (requestedSize > maxHeapSize) {
   err("Cannot enlarge memory, asked to go up to " + requestedSize + " bytes, but the limit is " + maxHeapSize + " bytes!");
   return false;
@@ -7455,6 +7479,10 @@ function _glBufferData(target, size, data, usage) {
  }
 }
 
+function _glCheckFramebufferStatus(x0) {
+ return GLctx["checkFramebufferStatus"](x0);
+}
+
 function _glClear(x0) {
  GLctx["clear"](x0);
 }
@@ -7621,6 +7649,12 @@ function _glGenerateMipmap(x0) {
 
 function _glGetAttribLocation(program, name) {
  return GLctx.getAttribLocation(GL.programs[program], UTF8ToString(name));
+}
+
+function _glGetError() {
+ var error = GLctx.getError() || GL.lastError;
+ GL.lastError = 0;
+ return error;
 }
 
 function readI53FromI64(ptr) {
@@ -9821,6 +9855,7 @@ function intArrayToString(array) {
 }
 
 var asmLibraryArg = {
+ "__assert_fail": ___assert_fail,
  "__cxa_allocate_exception": ___cxa_allocate_exception,
  "__cxa_throw": ___cxa_throw,
  "__syscall_connect": ___syscall_connect,
@@ -9890,6 +9925,7 @@ var asmLibraryArg = {
  "glBlendFunc": _glBlendFunc,
  "glBlendFuncSeparate": _glBlendFuncSeparate,
  "glBufferData": _glBufferData,
+ "glCheckFramebufferStatus": _glCheckFramebufferStatus,
  "glClear": _glClear,
  "glClearColor": _glClearColor,
  "glCompileShader": _glCompileShader,
@@ -9916,6 +9952,7 @@ var asmLibraryArg = {
  "glGenVertexArrays": _glGenVertexArrays,
  "glGenerateMipmap": _glGenerateMipmap,
  "glGetAttribLocation": _glGetAttribLocation,
+ "glGetError": _glGetError,
  "glGetIntegerv": _glGetIntegerv,
  "glGetProgramInfoLog": _glGetProgramInfoLog,
  "glGetProgramiv": _glGetProgramiv,
@@ -10013,6 +10050,8 @@ var stackRestore = Module["stackRestore"] = createExportWrapper("stackRestore");
 
 var stackAlloc = Module["stackAlloc"] = createExportWrapper("stackAlloc");
 
+var ___cxa_demangle = Module["___cxa_demangle"] = createExportWrapper("__cxa_demangle");
+
 var dynCall_v = Module["dynCall_v"] = createExportWrapper("dynCall_v");
 
 var dynCall_ii = Module["dynCall_ii"] = createExportWrapper("dynCall_ii");
@@ -10039,13 +10078,15 @@ var dynCall_viiiifi = Module["dynCall_viiiifi"] = createExportWrapper("dynCall_v
 
 var dynCall_iiiii = Module["dynCall_iiiii"] = createExportWrapper("dynCall_iiiii");
 
-var dynCall_iiiiii = Module["dynCall_iiiiii"] = createExportWrapper("dynCall_iiiiii");
-
-var dynCall_viiiiii = Module["dynCall_viiiiii"] = createExportWrapper("dynCall_viiiiii");
+var dynCall_fff = Module["dynCall_fff"] = createExportWrapper("dynCall_fff");
 
 var dynCall_iiii = Module["dynCall_iiii"] = createExportWrapper("dynCall_iiii");
 
 var dynCall_iiiiiiiiii = Module["dynCall_iiiiiiiiii"] = createExportWrapper("dynCall_iiiiiiiiii");
+
+var dynCall_viiiiii = Module["dynCall_viiiiii"] = createExportWrapper("dynCall_viiiiii");
+
+var dynCall_iiiiii = Module["dynCall_iiiiii"] = createExportWrapper("dynCall_iiiiii");
 
 var dynCall_iiiiiii = Module["dynCall_iiiiiii"] = createExportWrapper("dynCall_iiiiiii");
 
