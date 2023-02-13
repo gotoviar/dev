@@ -1,0 +1,1090 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gtvr xmlns="http://www.w3.org/TR/html4/" version="1.0">
+    <gui>
+        <!--
+                states:
+                  default, hovered, active
+                
+                color types:
+                  UNIFORM_COLOR
+                  GRADIENT_HORIZONTAL
+                  GRADIENT_VERTICAL
+                  GRADIENT_DIAGONAL_LB_RT    // diagonal left, bottom -> right, top
+                  GRADIENT_DIAGONAL_LT_RB    // diagonal left, top -> right, bottom
+                  
+                  first: used is used always
+                  second: used when color is gradient 
+            
+                round_corners:
+                    NONE
+                    TOP_LEFT
+                    TOP_RIGHT
+                    BOTTOM_LEFT
+                    BOTTOM_RIGHT
+                    DISABLE
+                    TOP
+                    BOTTOM
+                    LEFT
+                    RIGHT
+                    ALL
+        
+                draw_order:
+                    DEFAULT,
+                    FOREGROUND,
+                    BACKGROUND
+                
+                dimension type:
+                  ABSOLUTE
+                  RELATIVE
+                
+                color format: RGBA
+                
+                easing types:
+                  LINEAR
+                  EASE_IN
+                  EASE_OUT
+                  EASE_IN_OUT
+          -->
+        <theme name="blue">
+          <text_color>
+            <all type = "UNIFORM_COLOR" first = "0xFFFFFFFF" />
+          </text_color>
+
+          <window_bg_color>
+            <all type = "UNIFORM_COLOR" first = "0x000000BF" />
+          </window_bg_color>
+
+          <panel_bg_color>
+            <all type = "UNIFORM_COLOR" first = "0x36363680" />
+          </panel_bg_color>
+
+          <border_color>
+            <all type = "UNIFORM_COLOR" first = "0x4d66ffff" />
+          </border_color>
+
+          <frame_bg_color>
+            <default type = "UNIFORM_COLOR" first = "0x36363680" />
+            <hovered type = "GRADIENT_VERTICAL" first = "0xffffffb3" second = "0x36363680" />
+            <active  type = "GRADIENT_VERTICAL" first = "0xffffffb3" second = "0x36363680" />
+          </frame_bg_color>
+
+          <button_frame_color>
+            <default type = "UNIFORM_COLOR" first = "0x36363680" />
+            <hovered type = "GRADIENT_VERTICAL" first = "0xffffffb3" second = "0x36363680" />
+            <active  type = "GRADIENT_VERTICAL" first = "0xffffffb3" second = "0x36363680" />
+          </button_frame_color>
+
+          <window_padding>
+            <all x="5.0" y="5.0" />
+          </window_padding>
+
+          <panel_padding>
+            <all x="5.0" y="5.0"/>
+          </panel_padding>
+
+          <frame_padding>
+            <all x="4.0" y="4.0" />
+          </frame_padding>
+
+          <window_rounding>
+            <all v="17.0" />
+          </window_rounding>
+          
+          <panel_rounding>
+            <all v="10.0" />
+          </panel_rounding>
+
+          <frame_rounding>
+            <all v="17.0" />
+          </frame_rounding>
+
+          <window_border_size>
+            <default v="0.0" />
+            <hovered v="5.0" />
+            <active  v="5.0" />
+          </window_border_size>
+
+          <panel_border_size>
+            <all v="4.0" />
+          </panel_border_size>
+
+          <frame_border_size>
+            <default v="0.0" />
+            <hovered v="4.0" />
+            <active  v="4.0" />
+          </frame_border_size>
+
+          <window_title_align>
+            <all x="0.5" y="0.5" />
+          </window_title_align>
+
+          <button_text_align>
+            <all x="0.5" y="0.5" />
+          </button_text_align>
+
+          <button_image_align>
+            <all x="0.5" y="0.5" />
+          </button_image_align>
+
+          <window_item_spacing>
+            <all x="2.0" y="2.0" />
+          </window_item_spacing>
+
+          <panel_item_spacing>
+            <all x="2.0" y="2.0" />
+          </panel_item_spacing>
+
+          <frame_item_spacing>
+            <all x="2.0" y="2.0" />
+          </frame_item_spacing>
+        </theme>
+        
+        <animation name="anim1" duration="3" easing="LINEAR" />
+        
+        <menu name="home">                
+            <window id="main_win" title="Test Window" theme="blue">
+              <size type = "RELATIVE" x="100" y="100" />
+              <position type = "ABSOLUTE" x="0" y="0" />
+              <titlebar id="titlebar" title="Home" round_corners="TOP">
+                  <size type = "RELATIVE" x="100" y="10" />
+                  <position type = "RELATIVE" x="0" y="0" />
+              </titlebar>
+              <children>
+                <imagebutton id="rings" text="Rings"  animation="anim1" theme="blue">
+                  <size type = "RELATIVE" x="22" y="50" />
+                  <position type = "RELATIVE" x="18" y="22" />
+                  <transform>
+                        <default type="identity" />
+                        <hovered type="identity" />
+                        <active type="scale" x="0.0" y="1.0" />
+                  </transform>
+                  <image path="/rings/rings.png">
+                    <align>
+                        <all x="0.5" y="0.5" />
+                    </align>
+                    <fillpart x="0.95" y="0.95" />
+                    <transform>
+                        <default type="identity" />
+                        <hovered type="scale" x="1.4" y="1.4" />
+                        <active type="scale" x="0" y="1" />
+                    </transform>
+                  </image>
+                  <frame>
+                      <rounding>
+                          <all v="10.0"/>
+                      </rounding>
+                      <color>
+                        <default type = "UNIFORM_COLOR" first = "0x000000cc" />
+                        <hovered type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                        <active type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                      </color>
+                  </frame>
+                  <textframe>
+                      <rounding>
+                          <all v="20.0"/>
+                      </rounding>
+                      <color>
+                        <all type = "UNIFORM_COLOR" first = "0x4d66ffff" />
+                      </color>
+                  </textframe>
+                  <text>
+                      <align>
+                          <all x="0.5" y="0.95" />
+                      </align>
+                      <color>
+                          <all type = "UNIFORM_COLOR" first = "0xffffffff" />
+                      </color>
+                  </text>
+                  <on_click>
+                    <action order="1" name = "change_menu" src_name="rings"/>
+                  </on_click>
+                </imagebutton>          
+                <imagebutton id="diamonds" text="Diamonds"  animation="anim1" theme="blue">
+                  <size type = "RELATIVE" x="22" y="50" />
+                  <position type = "RELATIVE" x="60" y="22" />
+                  <transform>
+                        <default type="identity" />
+                        <hovered type="identity" />
+                        <active type="scale" x="0.0" y="1.0" />
+                  </transform>
+                  <image path="/diamonds/diamonds.png">
+                    <align>
+                        <all x="0.5" y="0.5" />
+                    </align>
+                    <fillpart x="0.95" y="0.95" />
+                    <transform>
+                        <default type="identity" />
+                        <hovered type="scale" x="1.4" y="1.4" />
+                        <active type="scale" x="0" y="1" />
+                    </transform>
+                  </image>
+                  <frame>
+                      <rounding>
+                          <all v="10.0"/>
+                      </rounding>
+                      <color>
+                        <default type = "UNIFORM_COLOR" first = "0x000000cc" />
+                        <hovered type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                        <active type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                      </color>
+                  </frame>
+                  <textframe>
+                      <rounding>
+                          <all v="20.0"/>
+                      </rounding>
+                      <color>
+                        <all type = "UNIFORM_COLOR" first = "0x4d66ffff" />
+                      </color>
+                  </textframe>
+                  <text>
+                      <align>
+                          <all x="0.5" y="0.95" />
+                      </align>
+                      <color>
+                          <all type = "UNIFORM_COLOR" first = "0xffffffff" />
+                      </color>
+                  </text>
+                  <on_click>
+                    <action order="1" name = "change_menu" src_name="diamonds"/>
+                  </on_click>
+                </imagebutton>
+                <button id="exit" text="" draw_order="FOREGROUND" >
+                    <size type = "RELATIVE" x="5" y="8" />
+                    <position type = "RELATIVE" x="0" y="91" />
+                    <text>
+                        <color>
+                            <all type = "UNIFORM_COLOR" first = "0xFFFFFFFF"/>
+                        </color>
+                        <transform>
+                            <all type="scale" x="-1.0" y="1.0" />
+                        </transform>
+                    </text>
+                    <border>
+                        <width>
+                            <all v="0.0" />
+                        </width>
+                    </border>
+                    <frame>
+                        <color>
+                            <all type = "UNIFORM_COLOR" first = "0x00000000"/>
+                        </color>
+                    </frame>
+                </button>
+              </children>
+            </window>
+        </menu>
+        <menu name="rings">
+        <window id="main_win" title="Rings" theme="blue">
+          <size type = "RELATIVE" x="100" y="100" />
+          <position type = "ABSOLUTE" x="0" y="0" />
+          <titlebar id="titlebar" title="Home/Rings" round_corners="TOP">
+            <size type = "RELATIVE" x="100" y="10" />
+            <position type = "RELATIVE" x="0" y="0" />
+          </titlebar>
+          <children>
+            <imagebutton id="engagement" text="Engagement"  animation="anim1" theme="blue">
+              <size type = "RELATIVE" x="22" y="50" />
+              <position type = "RELATIVE" x="18" y="22" />
+              <transform>
+                <default type="identity" />
+                <hovered type="identity" />
+                <active type="scale" x="0.0" y="1.0" />
+              </transform>
+              <image path="/rings/engagement/engagement.png">
+                <align>
+                  <all x="0.5" y="0.5" />
+                </align>
+                <fillpart x="0.95" y="0.95" />
+                <transform>
+                  <default type="identity" />
+                  <hovered type="scale" x="1.4" y="1.4" />
+                  <active type="scale" x="0" y="1" />
+                </transform>
+              </image>
+              <frame>
+                <rounding>
+                  <all v="10.0"/>
+                </rounding>
+                <color>
+                  <default type = "UNIFORM_COLOR" first = "0x000000cc" />
+                  <hovered type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                  <active type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                </color>
+              </frame>
+              <textframe>
+                <rounding>
+                  <all v="20.0"/>
+                </rounding>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x4d66ffff" />
+                </color>
+              </textframe>
+              <text>
+                <align>
+                  <all x="0.5" y="0.95" />
+                </align>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0xffffffff" />
+                </color>
+              </text>
+              <on_click>
+                <action order="1" name = "change_menu" src_name="engagement"/>
+              </on_click>
+            </imagebutton>
+            <imagebutton id="wedding" text="Weedding"  animation="anim1" theme="blue">
+              <size type = "RELATIVE" x="22" y="50" />
+              <position type = "RELATIVE" x="60" y="22" />
+              <transform>
+                <default type="identity" />
+                <hovered type="identity" />
+                <active type="scale" x="0.0" y="1.0" />
+              </transform>
+              <image path="/rings/wedding/wedding.png">
+                <align>
+                  <all x="0.5" y="0.5" />
+                </align>
+                <fillpart x="0.95" y="0.95" />
+                <transform>
+                  <default type="identity" />
+                  <hovered type="scale" x="1.4" y="1.4" />
+                  <active type="scale" x="0" y="1" />
+                </transform>
+              </image>
+              <frame>
+                <rounding>
+                  <all v="10.0"/>
+                </rounding>
+                <color>
+                  <default type = "UNIFORM_COLOR" first = "0x000000cc" />
+                  <hovered type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                  <active type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                </color>
+              </frame>
+              <textframe>
+                <rounding>
+                  <all v="20.0"/>
+                </rounding>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x4d66ffff" />
+                </color>
+              </textframe>
+              <text>
+                <align>
+                  <all x="0.5" y="0.95" />
+                </align>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0xffffffff" />
+                </color>
+              </text>
+              <on_click>
+                <action order="1" name = "change_menu" src_name="wedding"/>
+              </on_click>
+            </imagebutton>
+            <button id="back" text="" draw_order="FOREGROUND" >
+              <size type = "RELATIVE" x="5" y="8" />
+              <position type = "RELATIVE" x="0" y="0" />
+              <text>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x4d66ffff"/>
+                </color>
+              </text>
+              <border>
+                <width>
+                  <all v="0.0" />
+                </width>
+              </border>
+              <frame>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x00000000"/>
+                </color>
+              </frame>
+              <on_click>
+                <action order="1" name = "change_menu" src_name="home"/>
+              </on_click>
+            </button>
+            <button id="exit" text="" draw_order="FOREGROUND" >
+              <size type = "RELATIVE" x="5" y="8" />
+              <position type = "RELATIVE" x="0" y="91" />
+              <text>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0xFFFFFFFF"/>
+                </color>
+                <transform>
+                  <all type="scale" x="-1.0" y="1.0" />
+                </transform>
+              </text>
+              <border>
+                <width>
+                  <all v="0.0" />
+                </width>
+              </border>
+              <frame>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x00000000"/>
+                </color>
+              </frame>
+            </button>
+          </children>
+        </window>
+      </menu> 
+        <menu name="engagement">
+        <window id="main_win" title="Home/Rings/Engagement" theme="blue">
+          <size type = "RELATIVE" x="100" y="100" />
+          <position type = "ABSOLUTE" x="0" y="0" />
+          <titlebar id="titlebar" title="Home/Rings/Engagement" round_corners="TOP">
+            <size type = "RELATIVE" x="100" y="10" />
+            <position type = "RELATIVE" x="0" y="0" />
+          </titlebar>
+          <children>
+            <imagebutton id="ring1" text="Ring1"  animation="anim1" theme="blue">
+              <size type = "RELATIVE" x="22" y="50" />
+              <position type = "RELATIVE" x="18" y="22" />
+              <transform>
+                <default type="identity" />
+                <hovered type="identity" />
+                <active type="scale" x="0.0" y="1.0" />
+              </transform>
+              <image path="/rings/engagement/ring1/r2.23.png">
+                <align>
+                  <all x="0.5" y="0.5" />
+                </align>
+                <fillpart x="0.95" y="0.95" />
+                <transform>
+                  <default type="identity" />
+                  <hovered type="scale" x="1.4" y="1.4" />
+                  <active type="scale" x="0" y="1" />
+                </transform>
+              </image>
+              <on_click>
+                <action order="1" name = "open_resource" res_name="/rings/engagement/ring1/enring1.glb"/>
+              </on_click>
+              <frame>
+                <rounding>
+                  <all v="10.0"/>
+                </rounding>
+                <color>
+                  <default type = "UNIFORM_COLOR" first = "0x000000cc" />
+                  <hovered type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                  <active type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                </color>
+              </frame>
+              <textframe>
+                <rounding>
+                  <all v="20.0"/>
+                </rounding>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x4d66ffff" />
+                </color>
+              </textframe>
+              <text>
+                <align>
+                  <all x="0.5" y="0.95" />
+                </align>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0xffffffff" />
+                </color>
+              </text>
+            </imagebutton>
+            <imagebutton id="ring2" text="Ring2"  animation="anim1" theme="blue">
+              <size type = "RELATIVE" x="22" y="50" />
+              <position type = "RELATIVE" x="60" y="22" />
+              <transform>
+                <default type="identity" />
+                <hovered type="identity" />
+                <active type="scale" x="0.0" y="1.0" />
+              </transform>
+              <image path="/rings/engagement/ring2/r2.24.png">
+                <align>
+                  <all x="0.5" y="0.5" />
+                </align>
+                <fillpart x="0.95" y="0.95" />
+                <transform>
+                  <default type="identity" />
+                  <hovered type="scale" x="1.4" y="1.4" />
+                  <active type="scale" x="0" y="1" />
+                </transform>
+              </image>
+              <on_click>
+                <action order="1" name = "open_resource" res_name="/rings/engagement/ring2/enring2.glb"/>
+              </on_click>
+              <frame>
+                <rounding>
+                  <all v="10.0"/>
+                </rounding>
+                <color>
+                  <default type = "UNIFORM_COLOR" first = "0x000000cc" />
+                  <hovered type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                  <active type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                </color>
+              </frame>
+              <textframe>
+                <rounding>
+                  <all v="20.0"/>
+                </rounding>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x4d66ffff" />
+                </color>
+              </textframe>
+              <text>
+                <align>
+                  <all x="0.5" y="0.95" />
+                </align>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0xffffffff" />
+                </color>
+              </text>
+            </imagebutton>
+            <button id="back" text="" draw_order="FOREGROUND" >
+              <size type = "RELATIVE" x="5" y="8" />
+              <position type = "RELATIVE" x="0" y="0" />
+              <text>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x4d66ffff"/>
+                </color>
+              </text>
+              <border>
+                <width>
+                  <all v="0.0" />
+                </width>
+              </border>
+              <frame>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x00000000"/>
+                </color>
+              </frame>
+              <on_click>
+                <action order="1" name = "change_menu" src_name="rings"/>
+              </on_click>
+            </button>
+            <button id="exit" text="" draw_order="FOREGROUND" >
+              <size type = "RELATIVE" x="5" y="8" />
+              <position type = "RELATIVE" x="0" y="91" />
+              <text>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0xFFFFFFFF"/>
+                </color>
+                <transform>
+                  <all type="scale" x="-1.0" y="1.0" />
+                </transform>
+              </text>
+              <border>
+                <width>
+                  <all v="0.0" />
+                </width>
+              </border>
+              <frame>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x00000000"/>
+                </color>
+              </frame>
+            </button>
+          </children>
+        </window>
+      </menu>
+        <menu name="wedding">
+        <window id="main_win" title="Home/Rings/Wedding" theme="blue">
+          <size type = "RELATIVE" x="100" y="100" />
+          <position type = "ABSOLUTE" x="0" y="0" />
+          <titlebar id="titlebar" title="Home/Rings/Wedding" round_corners="TOP">
+            <size type = "RELATIVE" x="100" y="10" />
+            <position type = "RELATIVE" x="0" y="0" />
+          </titlebar>
+          <children>
+            <imagebuttonex id="ring1" text="Ring1"  animation="anim1" theme="blue">
+              <size type = "RELATIVE" x="22" y="50" />
+              <position type = "RELATIVE" x="18" y="22" />
+              <transform>
+                <default type="identity" />
+                <hovered type="identity" />
+                <active type="scale" x="0.0" y="1.0" />
+              </transform>
+              <image path="/rings/wedding/ring1/r2.21.png">
+                <align>
+                  <all x="0.5" y="0.5" />
+                </align>
+                <fillpart x="0.95" y="0.95" />
+                <transform>
+                  <default type="identity" />
+                  <hovered type="scale" x="1.4" y="1.4" />
+                  <active type="scale" x="0" y="1" />
+                </transform>
+              </image>
+              <on_click>
+                <action order="1" name = "open_resource" res_name="/rings/wedding/ring1/wenring1.glb"/>
+              </on_click>
+              <frame>
+                <rounding>
+                  <all v="10.0"/>
+                </rounding>
+                <color>
+                  <default type = "UNIFORM_COLOR" first = "0x000000cc" />
+                  <hovered type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                  <active type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                </color>
+              </frame>
+              <textframe>
+                <rounding>
+                  <all v="20.0"/>
+                </rounding>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x4d66ffff" />
+                </color>
+              </textframe>
+              <text>
+                <align>
+                  <all x="0.5" y="0.95" />
+                </align>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0xffffffff" />
+                </color>
+              </text>
+            </imagebuttonex>
+            <imagebuttonex id="ring2" text="Ring2"  animation="anim1" theme="blue">
+              <size type = "RELATIVE" x="22" y="50" />
+              <position type = "RELATIVE" x="60" y="22" />
+              <transform>
+                <default type="identity" />
+                <hovered type="identity" />
+                <active type="scale" x="0.0" y="1.0" />
+              </transform>
+              <image path="/rings/wedding/ring2/r2.22.png">
+                <align>
+                  <all x="0.5" y="0.5" />
+                </align>
+                <fillpart x="0.95" y="0.95" />
+                <transform>
+                  <default type="identity" />
+                  <hovered type="scale" x="1.4" y="1.4" />
+                  <active type="scale" x="0" y="1" />
+                </transform>
+              </image>
+              <on_click>
+                <action order="1" name = "open_resource" res_name="/rings/wedding/ring2/wenring2.glb"/>
+              </on_click>
+              <frame>
+                <rounding>
+                  <all v="10.0"/>
+                </rounding>
+                <color>
+                  <default type = "UNIFORM_COLOR" first = "0x000000cc" />
+                  <hovered type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                  <active type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                </color>
+              </frame>
+              <textframe>
+                <rounding>
+                  <all v="20.0"/>
+                </rounding>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x4d66ffff" />
+                </color>
+              </textframe>
+              <text>
+                <align>
+                  <all x="0.5" y="0.95" />
+                </align>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0xffffffff" />
+                </color>
+              </text>
+            </imagebuttonex>
+            <button id="back" text="" draw_order="FOREGROUND" >
+              <size type = "RELATIVE" x="5" y="8" />
+              <position type = "RELATIVE" x="0" y="0" />
+              <text>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x4d66ffff"/>
+                </color>
+              </text>
+              <border>
+                <width>
+                  <all v="0.0" />
+                </width>
+              </border>
+              <frame>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x00000000"/>
+                </color>
+              </frame>
+              <on_click>
+                <action order="1" name = "change_menu" src_name="rings"/>
+              </on_click>
+            </button>
+            <button id="exit" text="" draw_order="FOREGROUND" >
+              <size type = "RELATIVE" x="5" y="8" />
+              <position type = "RELATIVE" x="0" y="91" />
+              <text>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0xFFFFFFFF"/>
+                </color>
+                <transform>
+                  <all type="scale" x="-1.0" y="1.0" />
+                </transform>
+              </text>
+              <border>
+                <width>
+                  <all v="0.0" />
+                </width>
+              </border>
+              <frame>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x00000000"/>
+                </color>
+              </frame>
+            </button>
+          </children>
+        </window>
+      </menu>
+        <menu name="diamonds">
+        <window id="main_win" title="Home/Diamonds" theme="blue">
+          <size type = "RELATIVE" x="100" y="100" />
+          <position type = "ABSOLUTE" x="0" y="0" />
+          <titlebar id="titlebar" title="Home/Diamonds" round_corners="TOP">
+            <size type = "RELATIVE" x="100" y="10" />
+            <position type = "RELATIVE" x="0" y="0" />
+          </titlebar>
+          <children>
+            <imagebutton id="asscher" text="Asscher"  animation="anim1" theme="blue">
+              <size type = "RELATIVE" x="14.66" y="33.33" />
+              <position type = "RELATIVE" x="18" y="17.78" />
+              <transform>
+                <default type="identity" />
+                <hovered type="identity" />
+                <active type="scale" x="0.0" y="1.0" />
+              </transform>
+              <image path="/diamonds/asscher/r2.15.png">
+                <align>
+                  <all x="0.5" y="0.5" />
+                </align>
+                <fillpart x="0.95" y="0.95" />
+                <transform>
+                  <default type="identity" />
+                  <hovered type="scale" x="1.4" y="1.4" />
+                  <active type="scale" x="0" y="1" />
+                </transform>
+              </image>
+              <frame>
+                <rounding>
+                  <all v="10.0"/>
+                </rounding>
+                <color>
+                  <default type = "UNIFORM_COLOR" first = "0x000000cc" />
+                  <hovered type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                  <active type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                </color>
+              </frame>
+              <textframe>
+                <rounding>
+                  <all v="20.0"/>
+                </rounding>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x4d66ffff" />
+                </color>
+              </textframe>
+              <text>
+                <align>
+                  <all x="0.5" y="0.95" />
+                </align>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0xffffffff" />
+                </color>
+              </text>
+              <on_click>
+                <action order="1" name = "open_resource" res_name="/diamonds/asscher/asscher.glb"/>
+              </on_click>
+            </imagebutton>
+            <imagebutton id="heart" text="Heart"  animation="anim1" theme="blue">
+              <size type = "RELATIVE" x="14.66" y="33.33" />
+              <position type = "RELATIVE" x="42.66" y="17.78" />
+              <transform>
+                <default type="identity" />
+                <hovered type="identity" />
+                <active type="scale" x="0.0" y="1.0" />
+              </transform>
+              <image path="/diamonds/heart/r2.20.png">
+                <align>
+                  <all x="0.5" y="0.5" />
+                </align>
+                <fillpart x="0.95" y="0.95" />
+                <transform>
+                  <default type="identity" />
+                  <hovered type="scale" x="1.4" y="1.4" />
+                  <active type="scale" x="0" y="1" />
+                </transform>
+              </image>
+              <frame>
+                <rounding>
+                  <all v="10.0"/>
+                </rounding>
+                <color>
+                  <default type = "UNIFORM_COLOR" first = "0x000000cc" />
+                  <hovered type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                  <active type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                </color>
+              </frame>
+              <textframe>
+                <rounding>
+                  <all v="20.0"/>
+                </rounding>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x4d66ffff" />
+                </color>
+              </textframe>
+              <text>
+                <align>
+                  <all x="0.5" y="0.95" />
+                </align>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0xffffffff" />
+                </color>
+              </text>
+              <on_click>
+                <action order="1" name = "open_resource" res_name="/diamonds/heart/heart.glb"/>
+              </on_click>              
+            </imagebutton>
+            <imagebutton id="marquise" text="Marquise"  animation="anim1" theme="blue">
+              <size type = "RELATIVE" x="14.66" y="33.33" />
+              <position type = "RELATIVE" x="67.32" y="17.78" />
+              <transform>
+                <default type="identity" />
+                <hovered type="identity" />
+                <active type="scale" x="0.0" y="1.0" />
+              </transform>
+              <image path="/diamonds/marquise/r2.19.png">
+                <align>
+                  <all x="0.5" y="0.5" />
+                </align>
+                <fillpart x="0.95" y="0.95" />
+                <transform>
+                  <default type="identity" />
+                  <hovered type="scale" x="1.4" y="1.4" />
+                  <active type="scale" x="0" y="1" />
+                </transform>
+              </image>
+              <frame>
+                <rounding>
+                  <all v="10.0"/>
+                </rounding>
+                <color>
+                  <default type = "UNIFORM_COLOR" first = "0x000000cc" />
+                  <hovered type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                  <active type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                </color>
+              </frame>
+              <textframe>
+                <rounding>
+                  <all v="20.0"/>
+                </rounding>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x4d66ffff" />
+                </color>
+              </textframe>
+              <text>
+                <align>
+                  <all x="0.5" y="0.95" />
+                </align>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0xffffffff" />
+                </color>
+              </text>
+              <on_click>
+                <action order="1" name = "open_resource" res_name="/diamonds/marquise/marquise.glb"/>
+              </on_click>
+            </imagebutton>            
+            <imagebutton id="pear" text="Pear"  animation="anim1" theme="blue">
+              <size type = "RELATIVE" x="14.66" y="33.33" />
+              <position type = "RELATIVE" x="18" y="58.89" />
+              <transform>
+                <default type="identity" />
+                <hovered type="identity" />
+                <active type="scale" x="0.0" y="1.0" />
+              </transform>
+              <image path="/diamonds/pear/r2.18.png">
+                <align>
+                  <all x="0.5" y="0.5" />
+                </align>
+                <fillpart x="0.95" y="0.95" />
+                <transform>
+                  <default type="identity" />
+                  <hovered type="scale" x="1.4" y="1.4" />
+                  <active type="scale" x="0" y="1" />
+                </transform>
+              </image>
+              <frame>
+                <rounding>
+                  <all v="10.0"/>
+                </rounding>
+                <color>
+                  <default type = "UNIFORM_COLOR" first = "0x000000cc" />
+                  <hovered type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                  <active type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                </color>
+              </frame>
+              <textframe>
+                <rounding>
+                  <all v="20.0"/>
+                </rounding>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x4d66ffff" />
+                </color>
+              </textframe>
+              <text>
+                <align>
+                  <all x="0.5" y="0.95" />
+                </align>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0xffffffff" />
+                </color>
+              </text>
+              <on_click>
+                <action order="1" name = "open_resource" res_name="/diamonds/pear/pear.glb"/>
+              </on_click>
+            </imagebutton>
+            <imagebutton id="princess" text="Princess"  animation="anim1" theme="blue">
+              <size type = "RELATIVE" x="14.66" y="33.33" />
+              <position type = "RELATIVE" x="42.66" y="58.89" />
+              <transform>
+                <default type="identity" />
+                <hovered type="identity" />
+                <active type="scale" x="0.0" y="1.0" />
+              </transform>
+              <image path="/diamonds/princess/r2.16.png">
+                <align>
+                  <all x="0.5" y="0.5" />
+                </align>
+                <fillpart x="0.95" y="0.95" />
+                <transform>
+                  <default type="identity" />
+                  <hovered type="scale" x="1.4" y="1.4" />
+                  <active type="scale" x="0" y="1" />
+                </transform>
+              </image>
+              <frame>
+                <rounding>
+                  <all v="10.0"/>
+                </rounding>
+                <color>
+                  <default type = "UNIFORM_COLOR" first = "0x000000cc" />
+                  <hovered type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                  <active type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                </color>
+              </frame>
+              <textframe>
+                <rounding>
+                  <all v="20.0"/>
+                </rounding>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x4d66ffff" />
+                </color>
+              </textframe>
+              <text>
+                <align>
+                  <all x="0.5" y="0.95" />
+                </align>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0xffffffff" />
+                </color>
+              </text>
+              <on_click>
+                <action order="1" name = "open_resource" res_name="/diamonds/princess/princess.glb"/>
+              </on_click>
+            </imagebutton>
+            <imagebutton id="round" text="Round"  animation="anim1" theme="blue">
+              <size type = "RELATIVE" x="14.66" y="33.33" />
+              <position type = "RELATIVE" x="67.32" y="58.89" />
+              <transform>
+                <default type="identity" />
+                <hovered type="identity" />
+                <active type="scale" x="0.0" y="1.0" />
+              </transform>
+              <image path="/diamonds/round/r2.17.png">
+                <align>
+                  <all x="0.5" y="0.5" />
+                </align>
+                <fillpart x="0.95" y="0.95" />
+                <transform>
+                  <default type="identity" />
+                  <hovered type="scale" x="1.4" y="1.4" />
+                  <active type="scale" x="0" y="1" />
+                </transform>
+              </image>
+              <frame>
+                <rounding>
+                  <all v="10.0"/>
+                </rounding>
+                <color>
+                  <default type = "UNIFORM_COLOR" first = "0x000000cc" />
+                  <hovered type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                  <active type = "GRADIENT_VERTICAL" first = "0x000000FF" second="0xFFFFFFFF" />
+                </color>
+              </frame>
+              <textframe>
+                <rounding>
+                  <all v="20.0"/>
+                </rounding>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x4d66ffff" />
+                </color>
+              </textframe>
+              <text>
+                <align>
+                  <all x="0.5" y="0.95" />
+                </align>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0xffffffff" />
+                </color>
+              </text>
+              <on_click>
+                <action order="1" name = "open_resource" res_name="/diamonds/round/round.glb"/>
+              </on_click>
+            </imagebutton>            
+            <button id="back" text="" draw_order="FOREGROUND" >
+              <size type = "RELATIVE" x="5" y="8" />
+              <position type = "RELATIVE" x="0" y="0" />
+              <text>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x4d66ffff"/>
+                </color>
+              </text>
+              <border>
+                <width>
+                  <all v="0.0" />
+                </width>
+              </border>
+              <frame>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x00000000"/>
+                </color>
+              </frame>
+              <on_click>
+                <action order="1" name = "change_menu" src_name="home"/>
+              </on_click>
+            </button>
+            <button id="exit" text="" draw_order="FOREGROUND" >
+              <size type = "RELATIVE" x="5" y="8" />
+              <position type = "RELATIVE" x="0" y="91" />
+              <text>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0xFFFFFFFF"/>
+                </color>
+                <transform>
+                  <all type="scale" x="-1.0" y="1.0" />
+                </transform>
+              </text>
+              <border>
+                <width>
+                  <all v="0.0" />
+                </width>
+              </border>
+              <frame>
+                <color>
+                  <all type = "UNIFORM_COLOR" first = "0x00000000"/>
+                </color>
+              </frame>
+            </button>
+          </children>
+        </window>
+      </menu>
+    </gui>
+</gtvr>
+
