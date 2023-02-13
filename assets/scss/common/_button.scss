@@ -148,7 +148,6 @@ a {
 /*------------------------
     Imroz BUtton   
 --------------------------*/
-
 a,
 button {
     &.btn-default {
@@ -164,6 +163,7 @@ button {
         background-size: 152% 100%;
         background: var(--color-primary);
         border: 2px solid var(--color-primary);
+
         &:hover {
             transition: all .4s ease-in-out;
             background: transparent;
@@ -177,6 +177,7 @@ button {
                 color: var(--color-white);
             }
         }
+
         &.size-md {
             padding: 10px 25px;
             letter-spacing: 1px;
@@ -192,9 +193,11 @@ button {
 
         &.btn-large {
             padding: 26px 60px;
+
             @media #{$md-layout} {
                 padding: 16px 35px;
             }
+
             @media #{$sm-layout} {
                 padding: 16px 35px;
             }
@@ -203,6 +206,7 @@ button {
         &.color-secondary {
             border: 2px solid var(--color-secondary);
             background-color: var(--color-secondary);
+
             &:hover {
                 background-color: transparent;
                 border-color: var(--color-secondary);
@@ -214,6 +218,7 @@ button {
             background-color: transparent;
             border: 2px solid var(--color-primary);
             color: var(--color-primary);
+
             &.btn-opacity {
                 border: 2px solid var(--color-opacity-1);
                 color: var(--color-white);
@@ -228,15 +233,30 @@ button {
             &.color-secondary {
                 border: 2px solid var(--color-secondary);
                 color: var(--color-secondary);
+
                 &:hover {
                     color: var(--color-white);
                     border-color: var(--color-secondary);
                     background-color: var(--color-secondary);
                 }
             }
+
+            &.color-gtvr {
+                background-color: var(--color-primary);
+                border: 2px solid var(--color-white);
+                color: var(--color-white);
+
+                &:hover {
+                    color: var(--color-white);
+                    border-color: var(--color-secondary);
+                    background-color: var(--color-secondary);
+                }
+            }
+
             &.btn-white {
                 border: 2px solid var(--white);
                 color: var(--color-white);
+
                 &:hover {
                     color: var(--color-primary);
                     border-color: var(--color-white);
@@ -247,18 +267,21 @@ button {
 
         &.btn-dark {
             color: var(--color-white);
-            border-color:var(--color-dark);
+            border-color: var(--color-dark);
             background-color: var(--color-dark);
+
             &:hover {
                 transition: all .4s ease-in-out;
                 background: transparent;
                 border-color: var(--color-dark);
                 color: var(--color-dark);
             }
+
             &.btn-border {
                 background-color: transparent;
                 border: 2px solid var(--color-dark);
                 color: var(--color-dark);
+
                 &:hover {
                     color: var(--color-white);
                     border-color: var(--color-dark);
@@ -266,8 +289,6 @@ button {
                 }
             }
         }
-
-
     }
 }
 

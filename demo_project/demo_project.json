@@ -9,23 +9,22 @@
   "license": "free",
 
   "resources": [
-    { "path": "/base.zip" }
   ],
 
   "models": [
     {
-      "path": "/base.zip/scene.glb",
+      "path": "/scene.glb",
       "type": "scene"
     },
     {
-      "path": "/base.zip/controller.glb",
+      "path": "/controller.glb",
       "type": "controller"
     }
   ],
 
   "environments": [
     {
-      "path": "/base.zip/base_env.jpg",
+      "path": "/base_env.jpg",
       "type": "main"
     }
   ],
