@@ -13,25 +13,25 @@
 
   "models": [
     {
-      "path": "/scene.glb",
+      "path": "/base.zip/scene.glb",
       "type": "scene"
     },
     {
-      "path": "/controller.glb",
+      "path": "/base.zip/controller.glb",
       "type": "controller"
     }
   ],
 
   "environments": [
     {
-      "path": "/base_env.jpg",
+      "path": "/base.zip/base_env.jpg",
       "type": "main"
     }
   ],
 
   "menu": [
     {
-      "path": "/menu.xml",
+      "path": "/base.zip/menu.xml",
       "type": "main",
       "name": "home"
     }
