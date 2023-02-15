@@ -13,19 +13,23 @@
 
   "models": [
     {
-      "path": "/scene.glb",
+      "path": "/base.zip/scene.glb",
       "type": "scene"
     },
     {
-      "path": "/controller.glb",
+      "path": "/base.zip/controller.glb",
       "type": "controller"
     }
   ],
 
   "environments": [
     {
-      "path": "/base_env.jpg",
-      "type": "main"
+      "path": "/base.zip/color_env.jpg",
+      "type": "color"
+    },
+    {
+      "path": "/base.zip/reflection_env.jpg",
+      "type": "reflection"
     }
   ],
 

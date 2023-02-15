@@ -158,7 +158,7 @@
                         <hovered type="identity" />
                         <active type="scale" x="0.0" y="1.0" />
                   </transform>
-                  <image path="/rings/rings.png">
+                  <image path="/base.zip/rings/rings.png">
                     <align>
                         <all x="0.5" y="0.5" />
                     </align>
@@ -207,7 +207,7 @@
                         <hovered type="identity" />
                         <active type="scale" x="0.0" y="1.0" />
                   </transform>
-                  <image path="/diamonds/diamonds.png">
+                  <image path="/base.zip/diamonds/diamonds.png">
                     <align>
                         <all x="0.5" y="0.5" />
                     </align>
@@ -269,6 +269,9 @@
                             <all type = "UNIFORM_COLOR" first = "0x00000000"/>
                         </color>
                     </frame>
+                    <on_click>
+                      <action name = "exit"/>
+                    </on_click>
                 </button>
               </children>
             </window>
@@ -290,7 +293,7 @@
                 <hovered type="identity" />
                 <active type="scale" x="0.0" y="1.0" />
               </transform>
-              <image path="/rings/engagement/engagement.png">
+              <image path="/base.zip/rings/engagement/engagement.png">
                 <align>
                   <all x="0.5" y="0.5" />
                 </align>
@@ -339,7 +342,7 @@
                 <hovered type="identity" />
                 <active type="scale" x="0.0" y="1.0" />
               </transform>
-              <image path="/rings/wedding/wedding.png">
+              <image path="/base.zip/rings/wedding/wedding.png">
                 <align>
                   <all x="0.5" y="0.5" />
                 </align>
@@ -423,6 +426,9 @@
                   <all type = "UNIFORM_COLOR" first = "0x00000000"/>
                 </color>
               </frame>
+              <on_click>
+                <action name = "exit"/>
+              </on_click>
             </button>
           </children>
         </window>
@@ -444,7 +450,7 @@
                 <hovered type="identity" />
                 <active type="scale" x="0.0" y="1.0" />
               </transform>
-              <image path="/rings/engagement/ring1/r2.23.png">
+              <image path="/base.zip/rings/engagement/ring1/r2.23.png">
                 <align>
                   <all x="0.5" y="0.5" />
                 </align>
@@ -456,7 +462,7 @@
                 </transform>
               </image>
               <on_click>
-                <action order="1" name = "open_resource" res_name="/rings/engagement/ring1/enring1.glb"/>
+                <action order="1" name = "open_resource" res_name="/base.zip/rings/engagement/ring1/enring1.glb"/>
               </on_click>
               <frame>
                 <rounding>
@@ -493,7 +499,7 @@
                 <hovered type="identity" />
                 <active type="scale" x="0.0" y="1.0" />
               </transform>
-              <image path="/rings/engagement/ring2/r2.24.png">
+              <image path="/base.zip/rings/engagement/ring2/r2.24.png">
                 <align>
                   <all x="0.5" y="0.5" />
                 </align>
@@ -505,7 +511,7 @@
                 </transform>
               </image>
               <on_click>
-                <action order="1" name = "open_resource" res_name="/rings/engagement/ring2/enring2.glb"/>
+                <action order="1" name = "open_resource" res_name="/base.zip/rings/engagement/ring2/enring2.glb"/>
               </on_click>
               <frame>
                 <rounding>
@@ -577,6 +583,9 @@
                   <all type = "UNIFORM_COLOR" first = "0x00000000"/>
                 </color>
               </frame>
+              <on_click>
+                <action name = "exit"/>
+              </on_click>
             </button>
           </children>
         </window>
@@ -598,7 +607,7 @@
                 <hovered type="identity" />
                 <active type="scale" x="0.0" y="1.0" />
               </transform>
-              <image path="/rings/wedding/ring1/r2.21.png">
+              <image path="/base.zip/rings/wedding/ring1/r2.21.png">
                 <align>
                   <all x="0.5" y="0.5" />
                 </align>
@@ -610,7 +619,7 @@
                 </transform>
               </image>
               <on_click>
-                <action order="1" name = "open_resource" res_name="/rings/wedding/ring1/wenring1.glb"/>
+                <action order="1" name = "open_resource" res_name="/base.zip/rings/wedding/ring1/wenring1.glb"/>
               </on_click>
               <frame>
                 <rounding>
@@ -647,7 +656,7 @@
                 <hovered type="identity" />
                 <active type="scale" x="0.0" y="1.0" />
               </transform>
-              <image path="/rings/wedding/ring2/r2.22.png">
+              <image path="/base.zip/rings/wedding/ring2/r2.22.png">
                 <align>
                   <all x="0.5" y="0.5" />
                 </align>
@@ -659,7 +668,7 @@
                 </transform>
               </image>
               <on_click>
-                <action order="1" name = "open_resource" res_name="/rings/wedding/ring2/wenring2.glb"/>
+                <action order="1" name = "open_resource" res_name="/base.zip/rings/wedding/ring2/wenring2.glb"/>
               </on_click>
               <frame>
                 <rounding>
@@ -731,6 +740,9 @@
                   <all type = "UNIFORM_COLOR" first = "0x00000000"/>
                 </color>
               </frame>
+              <on_click>
+                <action name = "exit"/>
+              </on_click>
             </button>
           </children>
         </window>
@@ -752,7 +764,7 @@
                 <hovered type="identity" />
                 <active type="scale" x="0.0" y="1.0" />
               </transform>
-              <image path="/diamonds/asscher/r2.15.png">
+              <image path="/base.zip/diamonds/asscher/r2.15.png">
                 <align>
                   <all x="0.5" y="0.5" />
                 </align>
@@ -790,7 +802,7 @@
                 </color>
               </text>
               <on_click>
-                <action order="1" name = "open_resource" res_name="/diamonds/asscher/asscher.glb"/>
+                <action order="1" name = "open_resource" res_name="/base.zip/diamonds/asscher/asscher.glb"/>
               </on_click>
             </imagebutton>
             <imagebutton id="heart" text="Heart"  animation="anim1" theme="blue">
@@ -801,7 +813,7 @@
                 <hovered type="identity" />
                 <active type="scale" x="0.0" y="1.0" />
               </transform>
-              <image path="/diamonds/heart/r2.20.png">
+              <image path="/base.zip/diamonds/heart/r2.20.png">
                 <align>
                   <all x="0.5" y="0.5" />
                 </align>
@@ -839,7 +851,7 @@
                 </color>
               </text>
               <on_click>
-                <action order="1" name = "open_resource" res_name="/diamonds/heart/heart.glb"/>
+                <action order="1" name = "open_resource" res_name="/base.zip/diamonds/heart/heart.glb"/>
               </on_click>              
             </imagebutton>
             <imagebutton id="marquise" text="Marquise"  animation="anim1" theme="blue">
@@ -850,7 +862,7 @@
                 <hovered type="identity" />
                 <active type="scale" x="0.0" y="1.0" />
               </transform>
-              <image path="/diamonds/marquise/r2.19.png">
+              <image path="/base.zip/diamonds/marquise/r2.19.png">
                 <align>
                   <all x="0.5" y="0.5" />
                 </align>
@@ -888,7 +900,7 @@
                 </color>
               </text>
               <on_click>
-                <action order="1" name = "open_resource" res_name="/diamonds/marquise/marquise.glb"/>
+                <action order="1" name = "open_resource" res_name="/base.zip/diamonds/marquise/marquise.glb"/>
               </on_click>
             </imagebutton>            
             <imagebutton id="pear" text="Pear"  animation="anim1" theme="blue">
@@ -899,7 +911,7 @@
                 <hovered type="identity" />
                 <active type="scale" x="0.0" y="1.0" />
               </transform>
-              <image path="/diamonds/pear/r2.18.png">
+              <image path="/base.zip/diamonds/pear/r2.18.png">
                 <align>
                   <all x="0.5" y="0.5" />
                 </align>
@@ -937,7 +949,7 @@
                 </color>
               </text>
               <on_click>
-                <action order="1" name = "open_resource" res_name="/diamonds/pear/pear.glb"/>
+                <action order="1" name = "open_resource" res_name="/base.zip/diamonds/pear/pear.glb"/>
               </on_click>
             </imagebutton>
             <imagebutton id="princess" text="Princess"  animation="anim1" theme="blue">
@@ -948,7 +960,7 @@
                 <hovered type="identity" />
                 <active type="scale" x="0.0" y="1.0" />
               </transform>
-              <image path="/diamonds/princess/r2.16.png">
+              <image path="/base.zip/diamonds/princess/r2.16.png">
                 <align>
                   <all x="0.5" y="0.5" />
                 </align>
@@ -986,7 +998,7 @@
                 </color>
               </text>
               <on_click>
-                <action order="1" name = "open_resource" res_name="/diamonds/princess/princess.glb"/>
+                <action order="1" name = "open_resource" res_name="/base.zip/diamonds/princess/princess.glb"/>
               </on_click>
             </imagebutton>
             <imagebutton id="round" text="Round"  animation="anim1" theme="blue">
@@ -997,7 +1009,7 @@
                 <hovered type="identity" />
                 <active type="scale" x="0.0" y="1.0" />
               </transform>
-              <image path="/diamonds/round/r2.17.png">
+              <image path="/base.zip/diamonds/round/r2.17.png">
                 <align>
                   <all x="0.5" y="0.5" />
                 </align>
@@ -1035,7 +1047,7 @@
                 </color>
               </text>
               <on_click>
-                <action order="1" name = "open_resource" res_name="/diamonds/round/round.glb"/>
+                <action order="1" name = "open_resource" res_name="/base.zip/diamonds/round/round.glb"/>
               </on_click>
             </imagebutton>            
             <button id="back" text="" draw_order="FOREGROUND" >
@@ -1081,6 +1093,9 @@
                   <all type = "UNIFORM_COLOR" first = "0x00000000"/>
                 </color>
               </frame>
+              <on_click>
+                <action name = "exit"/>
+              </on_click>
             </button>
           </children>
         </window>
