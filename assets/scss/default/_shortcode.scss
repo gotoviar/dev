@@ -158,6 +158,11 @@ font-family: 'Poppins', sans-serif;
     background-size: cover;
 }
 
+.bg_image_bluenile {
+  background: url(/assets/images/bg/bluenile.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
 @for $i from 1 through 35 {
     .bg_image--#{$i} {
         background-image: url(/assets/images/bg/bg-image-#{$i}.jpg) !important;
