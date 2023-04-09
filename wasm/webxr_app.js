@@ -821,10 +821,10 @@ function dbg(text) {
 }
 
 var ASM_CONSTS = {
- 756292: $0 => {
+ 756372: $0 => {
   window.open(UTF8ToString($0), "_self").focus();
  },
- 756344: () => {
+ 756424: () => {
   window.shutdownGTVR();
  }
 };
