@@ -821,16 +821,16 @@ function dbg(text) {
 }
 
 var ASM_CONSTS = {
- 764396: () => {
+ 764444: () => {
   window.shutdownGTVR();
  },
- 764419: $0 => {
+ 764467: $0 => {
   window.open(UTF8ToString($0), "_self").focus();
  },
- 764471: () => {
+ 764519: () => {
   window.shutdownGTVR();
  },
- 764494: () => {
+ 764542: () => {
   global.location.reload();
  }
 };
