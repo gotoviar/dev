@@ -714,17 +714,17 @@ function dbg(text) {
 }
 
 var ASM_CONSTS = {
- 779740: () => {
+ 779804: () => {
   window.shutdownGTVR();
  },
- 779763: $0 => {
+ 779827: $0 => {
   window.location.reload();
   window.open(UTF8ToString($0), "_self").focus();
  },
- 779841: () => {
+ 779905: () => {
   window.shutdownGTVR();
  },
- 779864: () => {
+ 779928: () => {
   window.location.reload();
  }
 };
@@ -7649,6 +7649,12 @@ function _glIsEnabled(x0) {
  return GLctx.isEnabled(x0);
 }
 
+function _glIsFramebuffer(framebuffer) {
+ var fb = GL.framebuffers[framebuffer];
+ if (!fb) return 0;
+ return GLctx.isFramebuffer(fb);
+}
+
 function _glLinkProgram(program) {
  program = GL.programs[program];
  GLctx.linkProgram(program);
@@ -9613,6 +9619,7 @@ var wasmImports = {
  "glGetUniformLocation": _glGetUniformLocation,
  "glIsBuffer": _glIsBuffer,
  "glIsEnabled": _glIsEnabled,
+ "glIsFramebuffer": _glIsFramebuffer,
  "glLinkProgram": _glLinkProgram,
  "glScissor": _glScissor,
  "glShaderSource": _glShaderSource,
