@@ -714,17 +714,17 @@ function dbg(text) {
 }
 
 var ASM_CONSTS = {
- 779804: () => {
+ 779836: () => {
   window.shutdownGTVR();
  },
- 779827: $0 => {
+ 779859: $0 => {
   window.location.reload();
   window.open(UTF8ToString($0), "_self").focus();
  },
- 779905: () => {
+ 779937: () => {
   window.shutdownGTVR();
  },
- 779928: () => {
+ 779960: () => {
   window.location.reload();
  }
 };
@@ -7639,12 +7639,6 @@ function _glGetUniformLocation(program, name) {
  return -1;
 }
 
-function _glIsBuffer(buffer) {
- var b = GL.buffers[buffer];
- if (!b) return 0;
- return GLctx.isBuffer(b);
-}
-
 function _glIsEnabled(x0) {
  return GLctx.isEnabled(x0);
 }
@@ -7653,6 +7647,12 @@ function _glIsFramebuffer(framebuffer) {
  var fb = GL.framebuffers[framebuffer];
  if (!fb) return 0;
  return GLctx.isFramebuffer(fb);
+}
+
+function _glIsProgram(program) {
+ program = GL.programs[program];
+ if (!program) return 0;
+ return GLctx.isProgram(program);
 }
 
 function _glLinkProgram(program) {
@@ -9617,9 +9617,9 @@ var wasmImports = {
  "glGetShaderInfoLog": _glGetShaderInfoLog,
  "glGetShaderiv": _glGetShaderiv,
  "glGetUniformLocation": _glGetUniformLocation,
- "glIsBuffer": _glIsBuffer,
  "glIsEnabled": _glIsEnabled,
  "glIsFramebuffer": _glIsFramebuffer,
+ "glIsProgram": _glIsProgram,
  "glLinkProgram": _glLinkProgram,
  "glScissor": _glScissor,
  "glShaderSource": _glShaderSource,
