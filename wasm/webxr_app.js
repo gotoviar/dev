@@ -714,17 +714,17 @@ function dbg(text) {
 }
 
 var ASM_CONSTS = {
- 779772: () => {
+ 782028: () => {
   window.shutdownGTVR();
  },
- 779795: $0 => {
+ 782051: $0 => {
   window.location.reload();
   window.open(UTF8ToString($0), "_self").focus();
  },
- 779873: () => {
+ 782129: () => {
   window.shutdownGTVR();
  },
- 779896: () => {
+ 782152: () => {
   window.location.reload();
  }
 };
@@ -7280,6 +7280,10 @@ function _glDeleteVertexArrays(n, vaos) {
 
 var _glDeleteVertexArraysOES = _glDeleteVertexArrays;
 
+function _glDepthFunc(x0) {
+ GLctx.depthFunc(x0);
+}
+
 function _glDetachShader(program, shader) {
  GLctx.detachShader(GL.programs[program], GL.shaders[shader]);
 }
@@ -7306,6 +7310,10 @@ function _glEnableVertexAttribArray(index) {
 
 function _glFramebufferTexture2D(target, attachment, textarget, texture, level) {
  GLctx.framebufferTexture2D(target, attachment, textarget, GL.textures[texture], level);
+}
+
+function _glFrontFace(x0) {
+ GLctx.frontFace(x0);
 }
 
 function __glGenObject(n, buffers, createFunction, objectTable) {
@@ -7748,6 +7756,10 @@ function webglGetUniformLocation(location) {
  } else {
   GL.recordError(1282);
  }
+}
+
+function _glUniform1f(location, v0) {
+ GLctx.uniform1f(webglGetUniformLocation(location), v0);
 }
 
 function _glUniform1i(location, v0) {
@@ -9590,6 +9602,7 @@ var wasmImports = {
  "glDeleteTextures": _glDeleteTextures,
  "glDeleteVertexArrays": _glDeleteVertexArrays,
  "glDeleteVertexArraysOES": _glDeleteVertexArraysOES,
+ "glDepthFunc": _glDepthFunc,
  "glDetachShader": _glDetachShader,
  "glDisable": _glDisable,
  "glDrawArrays": _glDrawArrays,
@@ -9597,6 +9610,7 @@ var wasmImports = {
  "glEnable": _glEnable,
  "glEnableVertexAttribArray": _glEnableVertexAttribArray,
  "glFramebufferTexture2D": _glFramebufferTexture2D,
+ "glFrontFace": _glFrontFace,
  "glGenBuffers": _glGenBuffers,
  "glGenFramebuffers": _glGenFramebuffers,
  "glGenTextures": _glGenTextures,
@@ -9619,6 +9633,7 @@ var wasmImports = {
  "glTexImage2D": _glTexImage2D,
  "glTexParameterfv": _glTexParameterfv,
  "glTexParameteri": _glTexParameteri,
+ "glUniform1f": _glUniform1f,
  "glUniform1i": _glUniform1i,
  "glUniform3fv": _glUniform3fv,
  "glUniform4fv": _glUniform4fv,
