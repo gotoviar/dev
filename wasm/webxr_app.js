@@ -714,17 +714,17 @@ function dbg(text) {
 }
 
 var ASM_CONSTS = {
- 783388: () => {
+ 783372: () => {
   window.shutdownGTVR();
  },
- 783411: $0 => {
+ 783395: $0 => {
   window.location.reload();
   window.open(UTF8ToString($0), "_self").focus();
  },
- 783489: () => {
+ 783473: () => {
   window.shutdownGTVR();
  },
- 783512: () => {
+ 783496: () => {
   window.location.reload();
  }
 };
@@ -7768,23 +7768,6 @@ function _glUniform1i(location, v0) {
 
 var miniTempWebGLFloatBuffers = [];
 
-function _glUniform2fv(location, count, value) {
- if (GL.currentContext.version >= 2) {
-  count && GLctx.uniform2fv(webglGetUniformLocation(location), HEAPF32, value >> 2, count * 2);
-  return;
- }
- if (count <= 144) {
-  var view = miniTempWebGLFloatBuffers[2 * count - 1];
-  for (var i = 0; i < 2 * count; i += 2) {
-   view[i] = HEAPF32[value + 4 * i >>> 2];
-   view[i + 1] = HEAPF32[value + (4 * i + 4) >>> 2];
-  }
- } else {
-  var view = HEAPF32.subarray(value >>> 2, value + count * 8 >>> 2);
- }
- GLctx.uniform2fv(webglGetUniformLocation(location), view);
-}
-
 function _glUniform3fv(location, count, value) {
  if (GL.currentContext.version >= 2) {
   count && GLctx.uniform3fv(webglGetUniformLocation(location), HEAPF32, value >> 2, count * 3);
@@ -9652,7 +9635,6 @@ var wasmImports = {
  "glTexParameteri": _glTexParameteri,
  "glUniform1f": _glUniform1f,
  "glUniform1i": _glUniform1i,
- "glUniform2fv": _glUniform2fv,
  "glUniform3fv": _glUniform3fv,
  "glUniform4fv": _glUniform4fv,
  "glUniformMatrix4fv": _glUniformMatrix4fv,
