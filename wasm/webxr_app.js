@@ -714,17 +714,17 @@ function dbg(text) {
 }
 
 var ASM_CONSTS = {
- 786332: () => {
+ 786508: () => {
   window.shutdownGTVR();
  },
- 786355: $0 => {
+ 786531: $0 => {
   window.location.reload();
   window.open(UTF8ToString($0), "_self").focus();
  },
- 786433: () => {
+ 786609: () => {
   window.shutdownGTVR();
  },
- 786456: () => {
+ 786632: () => {
   window.location.reload();
  }
 };
