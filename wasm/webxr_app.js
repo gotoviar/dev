@@ -714,29 +714,29 @@ function dbg(text) {
 }
 
 var ASM_CONSTS = {
- 786620: () => {
+ 787068: () => {
   window.shutdownGTVR();
  },
- 786643: () => {
+ 787091: () => {
   window.location.reload();
  },
- 786669: () => {
+ 787117: () => {
   window.shutdownGTVR();
  },
- 786692: () => {
+ 787140: () => {
   window.location.reload();
  },
- 786718: () => {
+ 787166: () => {
   window.shutdownGTVR();
  },
- 786741: $0 => {
+ 787189: $0 => {
   window.location.reload();
   window.open(UTF8ToString($0), "_self").focus();
  },
- 786819: () => {
+ 787267: () => {
   window.shutdownGTVR();
  },
- 786842: () => {
+ 787290: () => {
   window.location.reload();
  }
 };
@@ -5704,15 +5704,6 @@ function __emval_as(handle, returnType, destructorsRef) {
  return returnType["toWireType"](destructors, handle);
 }
 
-function __emval_await(promise) {
- return Asyncify.handleAsync(() => {
-  promise = Emval.toValue(promise);
-  return promise.then(Emval.toHandle);
- });
-}
-
-__emval_await.isAsync = true;
-
 function emval_lookupTypes(argCount, argTypes) {
  var a = new Array(argCount);
  for (var i = 0; i < argCount; ++i) {
@@ -9567,7 +9558,6 @@ var wasmImports = {
  "_embind_register_std_wstring": __embind_register_std_wstring,
  "_embind_register_void": __embind_register_void,
  "_emval_as": __emval_as,
- "_emval_await": __emval_await,
  "_emval_call": __emval_call,
  "_emval_call_method": __emval_call_method,
  "_emval_call_void_method": __emval_call_void_method,
@@ -9839,9 +9829,9 @@ var _asyncify_start_rewind = createExportWrapper("asyncify_start_rewind");
 
 var _asyncify_stop_rewind = createExportWrapper("asyncify_stop_rewind");
 
-var ___start_em_js = Module["___start_em_js"] = 786868;
+var ___start_em_js = Module["___start_em_js"] = 787316;
 
-var ___stop_em_js = Module["___stop_em_js"] = 786956;
+var ___stop_em_js = Module["___stop_em_js"] = 787404;
 
 var missingLibrarySymbols = [ "traverseStack", "getCallstack", "emscriptenLog", "convertPCtoSourceLocation", "runMainThreadEmAsm", "jstoi_s", "listenOnce", "autoResumeAudioContext", "asmjsMangle", "getNativeTypeSize", "STACK_SIZE", "STACK_ALIGN", "POINTER_SIZE", "ASSERTIONS", "writeI53ToI64Clamped", "writeI53ToI64Signaling", "writeI53ToU64Clamped", "writeI53ToU64Signaling", "convertI32PairToI53", "convertU32PairToI53", "getCFunc", "ccall", "cwrap", "uleb128Encode", "generateFuncType", "convertJsFunctionToWasm", "getEmptyTableSlot", "updateTableMap", "getFunctionAddress", "addFunction", "removeFunction", "reallyNegative", "unSign", "strLen", "reSign", "formatString", "intArrayToString", "AsciiToString", "registerKeyEventCallback", "maybeCStringToJsString", "findEventTarget", "findCanvasEventTarget", "getBoundingClientRect", "fillMouseEventData", "registerMouseEventCallback", "registerWheelEventCallback", "registerUiEventCallback", "registerFocusEventCallback", "fillDeviceOrientationEventData", "registerDeviceOrientationEventCallback", "fillDeviceMotionEventData", "registerDeviceMotionEventCallback", "screenOrientation", "fillOrientationChangeEventData", "registerOrientationChangeEventCallback", "fillFullscreenChangeEventData", "registerFullscreenChangeEventCallback", "JSEvents_requestFullscreen", "JSEvents_resizeCanvasForFullscreen", "registerRestoreOldStyle", "hideEverythingExceptGivenElement", "restoreHiddenElements", "setLetterbox", "softFullscreenResizeWebGLRenderTarget", "doRequestFullscreen", "fillPointerlockChangeEventData", "registerPointerlockChangeEventCallback", "registerPointerlockErrorEventCallback", "requestPointerLock", "fillVisibilityChangeEventData", "registerVisibilityChangeEventCallback", "registerTouchEventCallback", "fillGamepadEventData", "registerGamepadEventCallback", "registerBeforeUnloadEventCallback", "fillBatteryEventData", "battery", "registerBatteryEventCallback", "setCanvasElementSize", "getCanvasElementSize", "checkWasiClock", "wasiRightsToMuslOFlags", "wasiOFlagsToMuslOFlags", "createDyncallWrapper", "setImmediateWrapped", "clearImmediateWrapped", "polyfillSetImmediate", "getPromise", "makePromise", "idsToPromises", "makePromiseCallback", "_setNetworkCallback", "emscriptenWebGLGetUniform", "emscriptenWebGLGetVertexAttrib", "__glGetActiveAttribOrUniform", "writeGLArray", "registerWebGlEventCallback", "SDL_unicode", "SDL_ttfContext", "SDL_audio", "emscriptenWebGLGetIndexed", "ALLOC_NORMAL", "ALLOC_STACK", "allocate", "writeStringToMemory", "writeAsciiToMemory", "init_embind", "getBasestPointer", "registerInheritedInstance", "unregisterInheritedInstance", "getInheritedInstance", "getInheritedInstanceCount", "getLiveInheritedInstances", "enumReadValueFromPointer", "genericPointerToWireType", "constNoSmartPtrRawPointerToWireType", "nonConstNoSmartPtrRawPointerToWireType", "init_RegisteredPointer", "RegisteredPointer", "RegisteredPointer_getPointee", "RegisteredPointer_destructor", "RegisteredPointer_deleteObject", "RegisteredPointer_fromWireType", "runDestructor", "releaseClassHandle", "detachFinalizer", "attachFinalizer", "makeClassHandle", "init_ClassHandle", "ClassHandle", "ClassHandle_isAliasOf", "throwInstanceAlreadyDeleted", "ClassHandle_clone", "ClassHandle_delete", "ClassHandle_isDeleted", "ClassHandle_deleteLater", "flushPendingDeletes", "setDelayFunction", "RegisteredClass", "shallowCopyInternalPointer", "downcastPointer", "upcastPointer", "validateThis" ];
 
