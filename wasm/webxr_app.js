@@ -833,29 +833,29 @@ function dbg(...args) {
 // end include: runtime_debug.js
 // === Body ===
 var ASM_CONSTS = {
-  791732: () => {
+  791652: () => {
     window.shutdownGTVR();
   },
-  791755: () => {
+  791675: () => {
     window.location.reload();
   },
-  791781: () => {
+  791701: () => {
     window.shutdownGTVR();
   },
-  791804: () => {
+  791724: () => {
     window.location.reload();
   },
-  791830: () => {
+  791750: () => {
     window.shutdownGTVR();
   },
-  791853: $0 => {
+  791773: $0 => {
     window.location.reload();
     window.open(UTF8ToString($0), "_self").focus();
   },
-  791931: () => {
+  791851: () => {
     window.shutdownGTVR();
   },
-  791954: () => {
+  791874: () => {
     window.location.reload();
   }
 };
